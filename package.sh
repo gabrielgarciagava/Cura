@@ -20,7 +20,7 @@ BUILD_TARGET=${1:-none}
 #BUILD_TARGET=freebsd
 
 ##Do we need to create the final archive
-ARCHIVE_FOR_DISTRIBUTION=0
+ARCHIVE_FOR_DISTRIBUTION=1
 ##Which version name are we appending to the final archive
 export BUILD_NAME=v0.01
 TARGET_DIR=Vanilla-${BUILD_NAME}-${BUILD_TARGET}
@@ -170,7 +170,7 @@ $MAKE -j 3 HARDWARE_MOTHERBOARD=72 ARDUINO_INSTALL_DIR=${ARDUINO_PATH} ARDUINO_V
 $MAKE -j 3 HARDWARE_MOTHERBOARD=72 ARDUINO_INSTALL_DIR=${ARDUINO_PATH} ARDUINO_VERSION=${ARDUINO_VERSION} BUILD_DIR=_UltimakerMarlin_Plus_Dual_115200 DEFINES="'VERSION_BASE=\"Ultimaker+:${BUILD_NAME}\"' 'VERSION_PROFILE=\"115200_dual\"' BAUDRATE=115200 TEMP_SENSOR_1=20 EXTRUDERS=2"
 cd -
 
-# gitClone git@github.com:Ultimaker/Ultimaker2Marlin.git _Ultimaker2Marlin
+gitClone git@github.com:Ultimaker/Ultimaker2Marlin.git _Ultimaker2Marlin
 cd _Ultimaker2Marlin/Marlin
 git checkout master
 $MAKE -j 3 HARDWARE_MOTHERBOARD=72 ARDUINO_INSTALL_DIR=${ARDUINO_PATH} ARDUINO_VERSION=${ARDUINO_VERSION} BUILD_DIR=_Ultimaker2 DEFINES="'STRING_CONFIG_H_AUTHOR=\"Version:_${BUILD_NAME}\"' TEMP_SENSOR_1=0 EXTRUDERS=1"

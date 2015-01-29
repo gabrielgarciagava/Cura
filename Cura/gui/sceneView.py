@@ -38,7 +38,7 @@ class SceneView(openglGui.glGuiPanel):
 
 		self._yaw = 30
 		self._pitch = 60
-		self._zoom = 300
+		self._zoom = 250
 		self._scene = objectScene.Scene()
 		self._objectShader = None
 		self._objectLoadShader = None
